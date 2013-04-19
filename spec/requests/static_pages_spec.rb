@@ -5,15 +5,15 @@ describe "Static pages" do
 let(:base_title){"Ruby on Rails Tutorial Sample App"}
   describe "Home page" do
     it "should have the content 'Sample App'" do
-      visit "/static_pages/home"
+      visit root_path
       page.should have_selector("h1",:text=>"Sample App")
     end
     it "should have the title Home" do
-      visit "/static_pages/home"
+      visit root_path
       page.should have_selector("title",:text=>"#{base_title} | Home")
     end
     it "should have the basis title" do
-      visit "/static_pages/home"
+      visit root_path
       page.should have_selector("title",:text=>"#{base_title}")
     end
   end
