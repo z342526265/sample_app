@@ -2,6 +2,7 @@
 require 'active_support/core_ext'
 
 guard 'rspec', :version => 2, :all_after_pass => false, :cli=>'--drb' do
+
   watch(%r{^app/controllers/(.+)_(controller)\.rb$})  do |m|
     ["spec/routing/#{m[1]}_routing_spec.rb",
      "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb",
@@ -9,10 +10,14 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli=>'--drb' do
      (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
                        "spec/requests/#{m[1].singularize}_pages_spec.rb")]
   end
+
   watch(%r{^app/views/(.+)/}) do |m|
     (m[1][/_pages/] ? "spec/requests/#{m[1]}_spec.rb" :
                        "spec/requests/#{m[1].singularize}_pages_spec.rb")
   end
+
+  watch(%r{(^spec/requests/static_pages_spec.rb)}) {|m| m[1]}
+  watch(%r{(^spec/requests/user_pages_spec.rb)}) {|m| m[1]}
 end
 
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
