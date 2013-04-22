@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   before_save do |user|
     #保存前全部转换成小写字母
-    user.email = email.downcase
+    user.email.downcase!
   end
 
 
