@@ -16,8 +16,8 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli=>'--drb' do
                        "spec/requests/#{m[1].singularize}_pages_spec.rb")
   end
 
-  watch(%r{(^spec/requests/static_pages_spec.rb)}) {|m| m[1]}
-  watch(%r{(^spec/requests/user_pages_spec.rb)}) {|m| m[1]}
+#  watch(%r{(^spec/requests/static_pages_spec.rb)}) {|m| m[1]}
+  watch(%r{(^spec/(.+)/(.+)_spec.rb)}) {|m| m[1]}
 end
 
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
