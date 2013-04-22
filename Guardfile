@@ -18,6 +18,11 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli=>'--drb' do
 
 #  watch(%r{(^spec/requests/static_pages_spec.rb)}) {|m| m[1]}
   watch(%r{(^spec/(.+)/(.+)_spec.rb)}) {|m| m[1]}
+
+#测试所有的model
+  watch(%r{^app/models/(.+)\.rb$})  do |m|
+    "spec/models/#{m[1]}_spec.rb"
+    end
 end
 
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do

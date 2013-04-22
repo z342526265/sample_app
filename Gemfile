@@ -7,6 +7,13 @@ gem 'bootstrap-sass','2.0.4'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg','0.12.2'
+gem 'bcrypt-ruby'
+
+group :development do
+  #注解rails模型
+  gem 'annotate','2.5.0'
+end
+
 
 group :development,:test do
     gem 'sqlite3','1.3.5'
