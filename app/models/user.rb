@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
     user.email.downcase!
   end
 
+    #创建记忆权标
+  before_save :create_remember_token
 
-
+private
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end
