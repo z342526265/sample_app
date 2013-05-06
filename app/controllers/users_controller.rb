@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
+    #pp "-------------"
+    #pp current_user
+
   end
 
   def show
