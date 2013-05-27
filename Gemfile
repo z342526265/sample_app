@@ -8,6 +8,9 @@ gem 'bootstrap-sass','2.0.4'
 
 gem 'pg','0.12.2'
 gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development do
   #注解rails模型
